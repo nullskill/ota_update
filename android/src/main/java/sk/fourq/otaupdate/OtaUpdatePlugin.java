@@ -418,10 +418,10 @@ public class OtaUpdatePlugin implements FlutterPlugin, ActivityAware, EventChann
         methodChannel.setMethodCallHandler(this);
 
         client = new OkHttpClient.Builder()
-                .connectTimeout(1, TimeUnit.SECONDS)
-                .callTimeout(1, TimeUnit.SECONDS)
-                .readTimeout(1, TimeUnit.SECONDS)
-                .writeTimeout(1, TimeUnit.SECONDS)
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .callTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
                 .addNetworkInterceptor(new Interceptor() {
                     @NotNull
                     @Override
