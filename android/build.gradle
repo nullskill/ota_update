@@ -22,21 +22,22 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
-    namespace 'sk.fourq.otaupdate'
-    compileSdkVersion 28
+    namespace = "sk.fourq.otaupdate"
+    compileSdk 28
 
     defaultConfig {
         minSdkVersion 16
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
-        disable 'InvalidPackage'
+        disable "InvalidPackage"
     }
 }
 
 dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     // https://mvnrepository.com/artifact/commons-codec/commons-codec
-    implementation group: 'commons-codec', name: 'commons-codec', version: '1.14'
-    implementation 'com.squareup.okhttp3:okhttp:4.11.0'
+    implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
+    // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.11.0'
 }
