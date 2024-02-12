@@ -44,6 +44,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * OtaUpdatePlugin
@@ -417,6 +418,10 @@ public class OtaUpdatePlugin implements FlutterPlugin, ActivityAware, EventChann
         methodChannel.setMethodCallHandler(this);
 
         client = new OkHttpClient.Builder()
+                .connectTimeout(1, TimeUnit.SECONDS)
+                .callTimeout(1, TimeUnit.SECONDS)
+                .readTimeout(1, TimeUnit.SECONDS)
+                .writeTimeout(1, TimeUnit.SECONDS)
                 .addNetworkInterceptor(new Interceptor() {
                     @NotNull
                     @Override
